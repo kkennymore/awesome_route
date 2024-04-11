@@ -1,4 +1,5 @@
-import 'package:example/home_page.dart';
+import 'package:awesome_route/animate_awesome_route.dart';
+import 'package:awesome_route/awesome_route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,21 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AwesomeRoute Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -50,12 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+ 
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -67,6 +48,106 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: const HomePage(),// This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+
+class AwesomeRouteDetail extends StatelessWidget {
+  const AwesomeRouteDetail({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      
+      appBar: AppBar(
+        leading: AwesomeRoute.pop(context),//call the routex pop to go back
+        title: const Text("Routex Navigation Demo"),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              Container(
+                child: const Text("Welcome"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      appBar: AppBar(
+        title: const Text("Welcome"),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              Container(
+                child: const Text("Welcome"),
+              ),
+              AwesomeRoute.push(
+                context: context, 
+                page: const AwesomeRouteDetail(), 
+                child: const Text("Push me and still come back",
+                style: TextStyle(
+                  color: Colors.white,
+                ),),
+                animationType: AnimateAwesomeRoute.fade,//optional
+                duration: const Duration(seconds: 1),//optional
+                backgroundColor: Colors.black12,//optional
+                borderRadius: 10.0,//optional
+                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),//optional
+              ),
+              const SizedBox(height: 20.0),
+              AwesomeRoute.pushAndClear(
+                context: context, 
+                page: const AwesomeRouteDetail(), 
+                child: const Text("Push me and this page history will be removed",
+                style: TextStyle(
+                  color: Colors.white,
+                ),),
+                animationType: AnimateAwesomeRoute.translateRightToLeft,//optional
+                duration: const Duration(seconds: 1),//optional
+                backgroundColor:const Color.fromARGB(255, 23, 55, 25),//optional
+                borderRadius: 10.0,//optional
+                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),//optional
+              ),
+            const SizedBox(height: 20.0),
+              AwesomeRoute.pushAndClearAll(
+                context: context, 
+                page: const AwesomeRouteDetail(), 
+                child: const Text("Push me and all page history will be removed",
+                style: TextStyle(
+                  color: Colors.white,
+                ),),
+                animationType: AnimateAwesomeRoute.opacityAndSlideFromDown,//optional
+                duration: const Duration(seconds: 1),//optional
+                backgroundColor:const Color.fromARGB(66, 65, 27, 27),//optional
+                borderRadius: 10.0,//optional
+                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),//optional
+              ),
+
+              ///check the documentation to implement the rest
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

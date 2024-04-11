@@ -67,6 +67,8 @@ AwesomeRoute supports a wide range of animation types for transitions, as define
 
 ## Contribution and Support
 
-The AwesomeRoute package is open for contributions. Developers are encouraged to contribute by reporting any issues, suggesting improvements, or submitting pull requests. For support or to report issues, you can contact the maintainer at kennethusiobaifo@yahoo.com, visit the AwesomeRoute website on https://awesome_route.usiobaifokenneth.com, or check the GitHub repository at https://github.com/kkennymore/awesome_route .
+The AwesomeRoute package is open for contributions. Developers are encouraged to contribute by reporting any issues, suggesting improvements, or submitting pull requests. For support or to report issues, you can contact the maintainer at kennethusiobaifo@yahoo.com, visit the AwesomeRoute website on https://awesomeroute.usiobaifokenneth.com, or check the GitHub repository at https://github.com/kkennymore/awesome_route .
+
+also checkout our AnimateEase package https://animateease.usiobaifokenneth.com, github https://github.com/kkennymore/animate_ease 
 
 This documentation aims to get you started with the AwesomeRoute package. For more detailed examples and advanced usage, refer to the GitHub repository or the package documentation on the AwesomeRoute website.
