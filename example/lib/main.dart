@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Routex Flutter Demo',
+      title: 'AwesomeRoute Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Routex Navigation Demo'),
+      home: const MyHomePage(title: 'AwesomeRoute Navigation Demo'),
     );
   }
 }

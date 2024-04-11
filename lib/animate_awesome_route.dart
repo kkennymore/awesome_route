@@ -1,4 +1,4 @@
-enum AnimateRoutex {
+enum AnimateAwesomeRoute {
   fade,
   slide,
   push,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:routex/animate_routex.dart';
+import 'package:awesome_route/animate_awesome_route.dart';
 
 class CreateRoute{
   static Route route(
-      Widget page, AnimateRoutex animationType, Duration duration) {
+      Widget page, AnimateAwesomeRoute animationType, Duration duration) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionDuration: duration,
@@ -12,34 +12,34 @@ class CreateRoute{
         var curvedAnimation = CurvedAnimation(parent: animation, curve: curve);
         Widget transition;
         switch (animationType) {
-          case AnimateRoutex.fade:
+          case AnimateAwesomeRoute.fade:
             transition = FadeTransition(opacity: curvedAnimation, child: child);
             break;
-          case AnimateRoutex.slide:
+          case AnimateAwesomeRoute.slide:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(1.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.push:
+          case AnimateAwesomeRoute.push:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(0.0, 1.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.rotate:
+          case AnimateAwesomeRoute.rotate:
             transition =
                 RotationTransition(turns: curvedAnimation, child: child);
             break;
-          case AnimateRoutex.scale:
+          case AnimateAwesomeRoute.scale:
             transition = ScaleTransition(scale: curvedAnimation, child: child);
             break;
-          case AnimateRoutex.opacity:
+          case AnimateAwesomeRoute.opacity:
             transition = FadeTransition(opacity: curvedAnimation, child: child);
             break;
-          case AnimateRoutex.rotateX:
+          case AnimateAwesomeRoute.rotateX:
             transition = AnimatedBuilder(
               animation: curvedAnimation,
               child: child,
@@ -51,7 +51,7 @@ class CreateRoute{
               ),
             );
             break;
-          case AnimateRoutex.rotateY:
+          case AnimateAwesomeRoute.rotateY:
             transition = AnimatedBuilder(
               animation: curvedAnimation,
               child: child,
@@ -63,20 +63,20 @@ class CreateRoute{
               ),
             );
             break;
-          case AnimateRoutex.translate:
+          case AnimateAwesomeRoute.translate:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(-1.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.scaleAndRotate:
+          case AnimateAwesomeRoute.scaleAndRotate:
             transition = ScaleTransition(
               scale: curvedAnimation,
               child: RotationTransition(turns: curvedAnimation, child: child),
             );
             break;
-          case AnimateRoutex.slideAndFade:
+          case AnimateAwesomeRoute.slideAndFade:
             transition = SlideTransition(
               position:
                   Tween<Offset>(begin: const Offset(0.0, 1.0), end: Offset.zero)
@@ -84,70 +84,70 @@ class CreateRoute{
               child: FadeTransition(opacity: curvedAnimation, child: child),
             );
             break;
-          case AnimateRoutex.translateLeftToRight:
+          case AnimateAwesomeRoute.translateLeftToRight:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(-1.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.translateRightToLeft:
+          case AnimateAwesomeRoute.translateRightToLeft:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(1.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.translateUpToDown:
+          case AnimateAwesomeRoute.translateUpToDown:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(0.0, -1.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.translateDownToUp:
+          case AnimateAwesomeRoute.translateDownToUp:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(0.0, 1.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.translateUpToUp:
+          case AnimateAwesomeRoute.translateUpToUp:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(0.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.translateDownToDown:
+          case AnimateAwesomeRoute.translateDownToDown:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(0.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: child);
             break;
-          case AnimateRoutex.slideAndFadeFromLeft:
+          case AnimateAwesomeRoute.slideAndFadeFromLeft:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(-1.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: FadeTransition(opacity: curvedAnimation, child: child));
             break;
-          case AnimateRoutex.slideAndFadeFromRight:
+          case AnimateAwesomeRoute.slideAndFadeFromRight:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(1.0, 0.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: FadeTransition(opacity: curvedAnimation, child: child));
             break;
-          case AnimateRoutex.slideAndFadeFromTop:
+          case AnimateAwesomeRoute.slideAndFadeFromTop:
             transition = SlideTransition(
                 position: Tween<Offset>(
                         begin: const Offset(0.0, -1.0), end: Offset.zero)
                     .animate(curvedAnimation),
                 child: FadeTransition(opacity: curvedAnimation, child: child));
             break;
-          case AnimateRoutex.opacityAndSlideFromRight:
+          case AnimateAwesomeRoute.opacityAndSlideFromRight:
             transition = FadeTransition(
                 opacity: curvedAnimation,
                 child: SlideTransition(
@@ -156,7 +156,7 @@ class CreateRoute{
                         .animate(curvedAnimation),
                     child: child));
             break;
-          case AnimateRoutex.opacityAndSlideFromLeft:
+          case AnimateAwesomeRoute.opacityAndSlideFromLeft:
             transition = FadeTransition(
                 opacity: curvedAnimation,
                 child: SlideTransition(
@@ -165,7 +165,7 @@ class CreateRoute{
                         .animate(curvedAnimation),
                     child: child));
             break;
-          case AnimateRoutex.opacityAndSlideFromTop:
+          case AnimateAwesomeRoute.opacityAndSlideFromTop:
             transition = FadeTransition(
                 opacity: curvedAnimation,
                 child: SlideTransition(
@@ -174,7 +174,7 @@ class CreateRoute{
                         .animate(curvedAnimation),
                     child: child));
             break;
-          case AnimateRoutex.opacityAndSlideFromDown:
+          case AnimateAwesomeRoute.opacityAndSlideFromDown:
             transition = FadeTransition(
                 opacity: curvedAnimation,
                 child: SlideTransition(

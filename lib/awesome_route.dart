@@ -1,11 +1,11 @@
-library routex;
+library awesome_route;
 
 import 'package:flutter/material.dart';
-import 'package:routex/animate_routex.dart';
-import 'package:routex/create_route.dart';
-import 'package:routex/nivagation_widget.dart';
+import 'package:awesome_route/animate_awesome_route.dart';
+import 'package:awesome_route/create_route.dart';
+import 'package:awesome_route/nivagation_widget.dart';
 
-class Routex {
+class AwesomeRoute {
 
   /// with this route you can simply navigate to another page with all the previous navigation state 
   /// kept intact
@@ -13,7 +13,7 @@ class Routex {
     required BuildContext context,
     required Widget page,
     required Widget child,
-    AnimateRoutex animationType = AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,
@@ -32,7 +32,7 @@ class Routex {
 
 
   static Widget pop(context, {
-    AnimateRoutex animationType = AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,
@@ -53,7 +53,7 @@ class Routex {
     required BuildContext context,
     required Widget page,
     required Widget child,
-    AnimateRoutex animationType = AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,
@@ -75,8 +75,8 @@ class Routex {
     required BuildContext context,
     required Widget page,
     required Widget child,
-    AnimateRoutex animationType =
-        AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType =
+        AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,
@@ -109,7 +109,7 @@ class Routex {
     required BuildContext context,
     required Future<void> Function() route, // Declaring 'route' as a generic function type
     required Widget child,
-    AnimateRoutex animationType = AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,
@@ -135,7 +135,7 @@ class Routex {
     required BuildContext context,
     required Future<void> Function() route, // Declaring 'route' as a generic function type
     required Widget child,
-    AnimateRoutex animationType = AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,
@@ -162,7 +162,7 @@ class Routex {
     required BuildContext context,
     required Future<void> Function() route, // Declaring 'route' as a generic function type
     required Widget child,
-    AnimateRoutex animationType = AnimateRoutex.opacityAndSlideFromRight,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
     Duration duration = const Duration(seconds: 1),
     double borderRadius = 10.0,
     Color backgroundColor = Colors.black26,

@@ -1,7 +1,8 @@
-import 'package:example/routex_details.dart';
+
+import 'package:awesome_route/animate_awesome_route.dart';
+import 'package:awesome_route/awesome_route.dart';
+import 'package:example/awesome_route_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:routex/animate_routex.dart';
-import 'package:routex/routex.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,42 +23,42 @@ class HomePage extends StatelessWidget {
               Container(
                 child: const Text("Welcome"),
               ),
-              Routex.push(
+              AwesomeRoute.push(
                 context: context, 
-                page: const RoutexDetails(), 
+                page: const AwesomeRouteDetail(), 
                 child: const Text("Push me and still come back",
                 style: TextStyle(
                   color: Colors.white,
                 ),),
-                animationType: AnimateRoutex.fade,//optional
+                animationType: AnimateAwesomeRoute.fade,//optional
                 duration: const Duration(seconds: 1),//optional
                 backgroundColor: Colors.black12,//optional
                 borderRadius: 10.0,//optional
                 padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),//optional
               ),
               const SizedBox(height: 20.0),
-              Routex.pushAndClear(
+              AwesomeRoute.pushAndClear(
                 context: context, 
-                page: const RoutexDetails(), 
+                page: const AwesomeRouteDetail(), 
                 child: const Text("Push me and this page history will be removed",
                 style: TextStyle(
                   color: Colors.white,
                 ),),
-                animationType: AnimateRoutex.translateRightToLeft,//optional
+                animationType: AnimateAwesomeRoute.translateRightToLeft,//optional
                 duration: const Duration(seconds: 1),//optional
                 backgroundColor:const Color.fromARGB(255, 23, 55, 25),//optional
                 borderRadius: 10.0,//optional
                 padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),//optional
               ),
             const SizedBox(height: 20.0),
-              Routex.pushAndClearAll(
+              AwesomeRoute.pushAndClearAll(
                 context: context, 
-                page: const RoutexDetails(), 
+                page: const AwesomeRouteDetail(), 
                 child: const Text("Push me and all page history will be removed",
                 style: TextStyle(
                   color: Colors.white,
                 ),),
-                animationType: AnimateRoutex.opacityAndSlideFromDown,//optional
+                animationType: AnimateAwesomeRoute.opacityAndSlideFromDown,//optional
                 duration: const Duration(seconds: 1),//optional
                 backgroundColor:const Color.fromARGB(66, 65, 27, 27),//optional
                 borderRadius: 10.0,//optional

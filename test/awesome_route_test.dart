@@ -1,13 +1,13 @@
+import 'package:awesome_route/animate_awesome_route.dart';
+import 'package:awesome_route/awesome_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:routex/animate_routex.dart';
-import 'package:routex/routex.dart';
 
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 void main() {
-  group('Routex navigation tests', () {
+  group('AwesomeRoute navigation tests', () {
     testWidgets(
         'push method navigates to the correct page with correct animation',
         (WidgetTester tester) async {
@@ -18,7 +18,7 @@ void main() {
         home: Scaffold(
           body: Builder(
             builder: (BuildContext context) {
-              return Routex.push(
+              return AwesomeRoute.push(
                 context: context,
                 page: Scaffold(
                     appBar: AppBar(
@@ -26,7 +26,7 @@ void main() {
                             'Destination Page'))), // Destination Page
                 child: const Text(
                     'Navigate'), // This would typically be your source widget
-                animationType: AnimateRoutex.fade, // Example animation type
+                animationType: AnimateAwesomeRoute.fade, // Example animation type
                 duration: const Duration(seconds: 1),
               );
             },
@@ -50,7 +50,7 @@ void main() {
         home: Scaffold(
           body: Builder(
             builder: (BuildContext context) {
-              return Routex.pushAndClear(
+              return AwesomeRoute.pushAndClear(
                 context: context,
                 page: Scaffold(
                     appBar: AppBar(
@@ -58,7 +58,7 @@ void main() {
                             'Destination Page'))), // Destination Page
                 child: const Text(
                     'Navigate'), // This would typically be your source widget
-                animationType: AnimateRoutex.fade, // Example animation type
+                animationType: AnimateAwesomeRoute.fade, // Example animation type
                 duration: const Duration(seconds: 1),
               );
             },
@@ -83,7 +83,7 @@ void main() {
         home: Scaffold(
           body: Builder(
             builder: (BuildContext context) {
-              return Routex.pushAndClearAll(
+              return AwesomeRoute.pushAndClearAll(
                 context: context,
                 page: Scaffold(
                     appBar: AppBar(
@@ -91,7 +91,7 @@ void main() {
                             'Destination Page'))), // Destination Page
                 child: const Text(
                     'Navigate'), // This would typically be your source widget
-                animationType: AnimateRoutex.fade, // Example animation type
+                animationType: AnimateAwesomeRoute.fade, // Example animation type
                 duration: const Duration(seconds: 1),
               );
             },
@@ -116,7 +116,7 @@ void main() {
         home: Scaffold(
           body: Builder(
             builder: (BuildContext context) {
-              return Routex.pushRoute(
+              return AwesomeRoute.pushRoute(
                 context: context,
                 route: ()async{
                   Scaffold(
@@ -126,7 +126,7 @@ void main() {
                     );
                 }, 
                 child: const Text('Navigate'), // This would typically be your source widget
-                animationType: AnimateRoutex.fade, // Example animation type
+                animationType: AnimateAwesomeRoute.fade, // Example animation type
                 duration: const Duration(seconds: 1),
               );
             },
@@ -151,7 +151,7 @@ void main() {
         home: Scaffold(
           body: Builder(
             builder: (BuildContext context) {
-              return Routex.pushRouteAndClear(
+              return AwesomeRoute.pushRouteAndClear(
                 context: context,
                 route: ()async{
                   Scaffold(
@@ -161,7 +161,7 @@ void main() {
                     );
                 }, 
                 child: const Text('Navigate'), // This would typically be your source widget
-                animationType: AnimateRoutex.fade, // Example animation type
+                animationType: AnimateAwesomeRoute.fade, // Example animation type
                 duration: const Duration(seconds: 1),
               );
             },
@@ -186,7 +186,7 @@ void main() {
         home: Scaffold(
           body: Builder(
             builder: (BuildContext context) {
-              return Routex.pushRouteAndClearAll(
+              return AwesomeRoute.pushRouteAndClearAll(
                 context: context,
                 route: ()async{
                   Scaffold(
@@ -196,7 +196,7 @@ void main() {
                     );
                 }, 
                 child: const Text('Navigate'), // This would typically be your source widget
-                animationType: AnimateRoutex.fade, // Example animation type
+                animationType: AnimateAwesomeRoute.fade, // Example animation type
                 duration: const Duration(seconds: 1),
               );
             },
