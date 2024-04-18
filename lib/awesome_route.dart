@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:awesome_route/animate_awesome_route.dart';
 import 'package:awesome_route/create_route.dart';
 import 'package:awesome_route/nivagation_widget.dart';
+export 'package:awesome_route/awesome_arguments.dart';
 
 class AwesomeRoute {
 
@@ -12,31 +13,7 @@ static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _route
     _routeMap = pages;
   }
 
-
-  /// with this route you can simply navigate to another page with all the previous navigation state 
-  /// kept intact
-  static Widget push({
-    required BuildContext context,
-    required Widget page,
-    required Widget child,
-    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
-    Duration duration = const Duration(seconds: 1),
-    double borderRadius = 10.0,
-    Color backgroundColor = Colors.black26,
-    EdgeInsets padding = const EdgeInsets.all(10),
-  }) {
-    return NavigationWidget.navigation(
-      context: context,
-      onTap: () => Navigator.of(context)
-          .push(CreateRoute.route(page, animationType, duration)),
-      padding: padding,
-      borderRadius: borderRadius,
-      backgroundColor: backgroundColor,
-      child: child,
-    );
-  }
-
-  // simple elegant routing 
+    // simple elegant routing 
   static Future<void> forward(
   BuildContext context,
   String routeName, {
@@ -66,6 +43,32 @@ static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _route
       throw Exception('Route not found: $routeName');
     }
   }
+
+
+
+  /// with this route you can simply navigate to another page with all the previous navigation state 
+  /// kept intact
+  static Widget push({
+    required BuildContext context,
+    required Widget page,
+    required Widget child,
+    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
+    Duration duration = const Duration(seconds: 1),
+    double borderRadius = 10.0,
+    Color backgroundColor = Colors.black26,
+    EdgeInsets padding = const EdgeInsets.all(10),
+  }) {
+    return NavigationWidget.navigation(
+      context: context,
+      onTap: () => Navigator.of(context)
+          .push(CreateRoute.route(page, animationType, duration)),
+      padding: padding,
+      borderRadius: borderRadius,
+      backgroundColor: backgroundColor,
+      child: child,
+    );
+  }
+
 
 
   static Widget pop(context, {
