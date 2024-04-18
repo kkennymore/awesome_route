@@ -5,8 +5,8 @@ class AwesomeArguments extends InheritedWidget {
 
   AwesomeArguments({
     required this.arguments,
-    required Widget child,
-  }) : super(child: child);
+    required Widget page,
+  }) : super(child: page);
 
   static AwesomeArguments? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<AwesomeArguments>();
