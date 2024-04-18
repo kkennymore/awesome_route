@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AwesomeArguments extends InheritedWidget {
-  final Map<String, dynamic> arguments;
+  final Map<String, dynamic>? arguments;
 
   AwesomeArguments({
-    required this.arguments,
     required Widget page,
+    this.arguments,
   }) : super(child: page);
 
   static AwesomeArguments? of(BuildContext context) {
