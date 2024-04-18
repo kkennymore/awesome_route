@@ -7,32 +7,48 @@ export 'package:awesome_route/awesome_arguments.dart';
 
 class AwesomeRoute {
 
-static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _routeMap;
-// this will allow for the page widget declaration dynamically
+/// A routing library for Flutter applications that allows for dynamic and customizable page navigation.
+///
+/// This library provides a comprehensive set of functionalities for managing navigation with custom animations,
+/// clearing navigation histories, and handling complex transitions between screens.
+  static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _routeMap;
+
+  /// Constructs an AwesomeRoute with dynamically declared page widgets.
+  ///
+  /// [pages]: A map of route identifiers to widget constructors which allows for dynamic route creation based on given context and arguments.
   AwesomeRoute({Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? pages}) {
     _routeMap = pages;
   }
 
-    // simple elegant routing 
+  /// Navigates to a specified route with optional animation, duration, and history clearing capabilities.
+  ///
+  /// [context]: The BuildContext from which the navigation is initiated.
+  /// [routeName]: The name of the route to navigate to, as defined in [_routeMap].
+  /// [animations]: The type of animation to apply to the route transition.
+  /// [duration]: The duration of the transition animation.
+  /// [clearHist]: A boolean that determines whether to clear the navigation stack up to the first route.
+  /// [arguments]: A map of arguments to pass to the new route.
   static Future<void> go(
-  BuildContext context,
-  String routeName, {
-  AnimateAwesomeRoute? animations = AnimateAwesomeRoute.opacityAndSlideFromRight,
-  Duration? duration = const Duration(seconds: 1),
-  bool clearHist = false,
-  Map<String, dynamic>? arguments,
-}) async {
-  Widget page = _getPage(context, routeName, arguments);
-  Route route = CreateRoute.route(page, animations!, duration!);
+    BuildContext context,
+    String routeName, {
+    AnimateAwesomeRoute? animations = AnimateAwesomeRoute.opacityAndSlideFromRight,
+    Duration? duration = const Duration(seconds: 1),
+    bool clearHist = false,
+    Map<String, dynamic>? arguments,
+  }) async {
+    Widget page = _getPage(context, routeName, arguments);
+    Route route = CreateRoute.route(page, animations!, duration!);
 
-  if (clearHist) {
-    Navigator.of(context).pushAndRemoveUntil(route, (_) => false);
-  } else {
-    Navigator.of(context).push(route);
+    if (clearHist) {
+      Navigator.of(context).pushAndRemoveUntil(route, (_) => false);
+    } else {
+      Navigator.of(context).push(route);
+    }
   }
-}
 
-
+  /// Internal method to retrieve the widget for the given route.
+  ///
+  /// Throws an exception if the route map is not initialized or if the route is not found.
   static Widget _getPage(BuildContext context, String routeName, Map<String, dynamic>? arguments) {
     if (_routeMap == null) {
       throw Exception('Route map is not initialized. Call AwesomeRoute.pages() first.');
@@ -44,10 +60,17 @@ static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _route
     }
   }
 
-
-
-  /// with this route you can simply navigate to another page with all the previous navigation state 
-  /// kept intact
+  /// Pushes a new route on the navigation stack while maintaining the previous navigation state,
+  /// using specified animations and a customizable widget.
+  ///
+  /// [context]: The BuildContext from which the navigation is initiated.
+  /// [page]: The widget to navigate to.
+  /// [child]: A child widget to display inside a navigational container.
+  /// [animationType]: The type of animation to use during the transition.
+  /// [duration]: The duration of the animation.
+  /// [borderRadius]: The border radius of the navigational container.
+  /// [backgroundColor]: The background color of the navigational container.
+  /// [padding]: The padding inside the navigational container.
   static Widget push({
     required BuildContext context,
     required Widget page,
@@ -66,24 +89,6 @@ static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _route
       borderRadius: borderRadius,
       backgroundColor: backgroundColor,
       child: child,
-    );
-  }
-
-
-
-  static Widget pop(context, {
-    AnimateAwesomeRoute animationType = AnimateAwesomeRoute.opacityAndSlideFromRight,
-    Duration duration = const Duration(seconds: 1),
-    double borderRadius = 10.0,
-    Color backgroundColor = Colors.black26,
-    EdgeInsets padding = const EdgeInsets.all(10),
-  }) {
-    return NavigationWidget.navigation(
-      context: context,
-      onTap: () => Navigator.pop(context),
-      padding: padding,
-      borderRadius: borderRadius,
-      backgroundColor: backgroundColor,
     );
   }
 

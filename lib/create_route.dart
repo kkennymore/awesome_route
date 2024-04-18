@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_route/animate_awesome_route.dart';
 
-class CreateRoute{
+/// The `CreateRoute` class provides a method to create page routes with customizable animations.
+///
+/// This class utilizes the `PageRouteBuilder` to enable a variety of transition animations between pages,
+/// based on the animation type specified. It allows for dynamic creation of visually appealing transitions
+/// for a better user experience.
+class CreateRoute {
+
+  /// Creates a route with the specified page and animation.
+  ///
+  /// This method utilizes the `PageRouteBuilder` to apply custom transitions as the user navigates between screens.
+  /// Depending on the `animationType` chosen, different animations are applied.
+  ///
+  /// Parameters:
+  ///   - [page]: The widget that will be displayed when the route is navigated to.
+  ///   - [animationType]: The type of animation to use for the transition.
+  ///   - [duration]: The duration of the transition.
+  ///
+  /// Returns:
+  ///   A `Route` object that can be used with `Navigator.push` or similar methods to navigate to the `page`.
   static Route route(
-      Widget page, AnimateAwesomeRoute animationType, Duration duration) {
+      Widget page, 
+      AnimateAwesomeRoute animationType, 
+      Duration duration) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionDuration: duration,
@@ -11,6 +31,7 @@ class CreateRoute{
         var curve = Curves.easeInOut;
         var curvedAnimation = CurvedAnimation(parent: animation, curve: curve);
         Widget transition;
+        
         switch (animationType) {
           case AnimateAwesomeRoute.fade:
             transition = FadeTransition(opacity: curvedAnimation, child: child);
