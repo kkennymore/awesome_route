@@ -53,6 +53,88 @@ AwesomeRoute.push(
   backgroundColor: Colors.black26, // Optional UI customization
 );
 ```
+## Dynamic Routing
+Easily map route names to pages with support for dynamic argument passing. Define your routes in a central place, typically during app initialization. Here's how to set up the routes:
+
+```
+import 'package:awesome_route/awesome_route.dart';
+
+class AwesomePagesRoute {
+  static Future<void> routes() async {
+    AwesomeRoute(pages: {
+      // Define routes and corresponding pages here
+      '/otp': (context, arguments) => AwesomeArguments(
+            arguments: arguments ?? {},
+            page: ConfirmOTP(),
+          ),
+      '/home': (context, arguments) => AwesomeArguments(
+            page: HomeScreen(),
+          ),
+      // Add more routes as needed
+    });
+  }
+}
+```
+Note that this class and method can be called any name you wish. after declaring the class and the method, initialise it the the main method of your flutter app:
+
+```
+void main() async {
+  // initialise all the routes
+  await AwesomePagesRoute.routes();
+  runApp(MyApp());
+}
+```
+## Using Routes in Your Application
+
+Navigate to a route using ``AwesomeRoute.go`` method:
+```
+//using the argument
+ElevatedButton(
+  onPressed: () {
+    AwesomeRoute.go(
+      context,
+      '/otp',
+      arguments: {
+        'name': 'John Doe',
+        'email': 'john@example.com'
+      },
+      animations: AnimateAwesomeRoute.opacity,
+      duration: Duration(seconds: 1),
+    );
+  },
+  child: Text('Verify OTP'),
+)
+//without argument
+ElevatedButton(
+  onPressed: () {
+    AwesomeRoute.go(
+      context,
+      '/otp',
+    );
+  },
+  child: Text('Verify OTP'),
+)
+```
+## Accessing Arguments
+
+```
+class ConfirmOTP extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final arguments = AwesomeArguments.of(context)?.arguments;
+    return Scaffold(
+      appBar: AppBar(title: Text("OTP Confirmation")),
+      body: Text('Name: ${arguments?['name']} Email: ${arguments?['email']}'),
+    );
+  }
+}
+```
+## Customizing Animations
+Specify the animation type when navigating to maintain the visual coherence of your application. Supported animations can be extended in the ``AnimateAwesomeRoute`` enum.
+
+## Clearing Navigation History
+To clear the navigation stack ``(useful for login or logout scenarios)``, set the ``clearHist`` parameter to true when calling ``AwesomeRoute.go``.
+
 # Advanced Navigation Options
 AwesomeRoute also provides methods for navigating with more control over the navigation stack, such as:
 
