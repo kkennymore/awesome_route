@@ -8,8 +8,8 @@ class AwesomeRoute {
 
 static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _routeMap;
 // this will allow for the page widget declaration dynamically
-  AwesomeRoute({Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? newRoutes}) {
-    _routeMap = newRoutes;
+  AwesomeRoute({Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? pages}) {
+    _routeMap = pages;
   }
 
 
