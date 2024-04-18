@@ -14,7 +14,7 @@ static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _route
   }
 
     // simple elegant routing 
-  static Future<void> forward(
+  static Future<void> go(
   BuildContext context,
   String routeName, {
   AnimateAwesomeRoute? animations = AnimateAwesomeRoute.opacityAndSlideFromRight,
