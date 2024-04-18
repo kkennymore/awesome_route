@@ -1,6 +1,6 @@
 name: awesome_route
 description: "The AwesomeRoute package is a versatile and easy-to-use Flutter navigation solution that offers a variety of animation options for page transitions. It simplifies the process of implementing animated routes in your Flutter application, allowing for a more dynamic and engaging user experience. This documentation aims to guide developers through integrating the Routex package into their applications, detailing its capabilities, and how to utilize its functionalities effectively."
-version: 0.0.1
+version: 0.0.2
 homepage: https://awesomeroute.usiobaifokenneth.com
 
 environment:

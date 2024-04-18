@@ -1,11 +1,17 @@
 library awesome_route;
-
 import 'package:flutter/material.dart';
 import 'package:awesome_route/animate_awesome_route.dart';
 import 'package:awesome_route/create_route.dart';
 import 'package:awesome_route/nivagation_widget.dart';
 
 class AwesomeRoute {
+
+static Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? _routeMap;
+// this will allow for the page widget declaration dynamically
+  AwesomeRoute({Map<String, Widget Function(BuildContext, Map<String, dynamic>?)>? newRoutes}) {
+    _routeMap = newRoutes;
+  }
+
 
   /// with this route you can simply navigate to another page with all the previous navigation state 
   /// kept intact
@@ -28,6 +34,37 @@ class AwesomeRoute {
       backgroundColor: backgroundColor,
       child: child,
     );
+  }
+
+  // simple elegant routing 
+  static Future<void> forward(
+  BuildContext context,
+  String routeName, {
+  AnimateAwesomeRoute? animations = AnimateAwesomeRoute.opacityAndSlideFromRight,
+  Duration? duration = const Duration(seconds: 1),
+  bool clearHist = false,
+  Map<String, dynamic>? arguments,
+}) async {
+  Widget page = _getPage(context, routeName, arguments);
+  Route route = CreateRoute.route(page, animations!, duration!);
+
+  if (clearHist) {
+    Navigator.of(context).pushAndRemoveUntil(route, (_) => false);
+  } else {
+    Navigator.of(context).push(route);
+  }
+}
+
+
+  static Widget _getPage(BuildContext context, String routeName, Map<String, dynamic>? arguments) {
+    if (_routeMap == null) {
+      throw Exception('Route map is not initialized. Call AwesomeRoute.pages() first.');
+    }
+    if (_routeMap!.containsKey(routeName)) {
+      return _routeMap![routeName]!(context, arguments);
+    } else {
+      throw Exception('Route not found: $routeName');
+    }
   }
 
 
