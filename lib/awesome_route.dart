@@ -92,6 +92,8 @@ class AwesomeRoute {
     );
   }
 
+static pop(context) => Navigator.pop(context);
+
 /// with this route you can simply navigate to another page with all the previous navigation state 
   /// kept intact excpet the immediate parent, it will remove the just left page from the navigation history
   static Widget pushAndClear({

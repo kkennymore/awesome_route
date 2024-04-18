@@ -30,7 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  awesome_route: ^0.0.2
+  awesome_route: 
+    path: ../../awesome_route
 
 
   # The following adds the Cupertino Icons font to your application.

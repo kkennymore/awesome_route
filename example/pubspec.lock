@@ -12,11 +12,10 @@ packages:
   awesome_route:
     dependency: "direct main"
     description:
-      name: awesome_route
-      sha256: "248a2dc4434651f339453fba09eb37fe7e061446a1295906b9a5df5cebdf50de"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.3"
   boolean_selector:
     dependency: transitive
     description:
